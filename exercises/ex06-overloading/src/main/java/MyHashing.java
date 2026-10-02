@@ -42,11 +42,11 @@ public class MyHashing {
    */
   public int hash(int value) {
     // TODO
-    int seed1 = this.seed;
+    int pastSeed = this.seed;
     this.seed = value;
-    return seed1;
-  }
+    return pastSeed;
 
+  }
   /**
    * Stores {@code value} as the new seed and returns the sum of the previous
    * seed and {@code value}, taken modulo {@link #MODULO}. (A char used in
@@ -57,9 +57,9 @@ public class MyHashing {
    */
   public int hash(char value) {
     // TODO
-    int sumSeed = (this.seed + value)% MODULO;
+    int sum = (this.seed + value) % MODULO;
     this.seed = value;
-    return sumSeed;
+    return sum;
   }
 
   /**
@@ -70,14 +70,13 @@ public class MyHashing {
    * @param value the string to hash
    * @return the sum of the characters' numeric codes
    */
-  public static int hash(String value) {
-    // TODO: String.toCharArray() may help.
-    char[] list = value.toCharArray();
+  public static int hash(String value){
+      // TODO: String.toCharArray() may help.
+    char[] codes = value.toCharArray();
     int sum = 0;
-    for (int i = 0; i < list.length; i++) {
-      sum += list[i];
+    for (int i = 0; i<codes.length; i++) {
+      sum += codes[i];
     }
-
     return sum;
-  }
+    }
 }

@@ -47,7 +47,9 @@ public class Point {
   @Override
   public String toString() {
     // TODO
-    return "(" + this.x + ", " + this.y + ")";
+    int var10000 = this.getX();
+    return "(" + var10000 + ", " + this.getY() + ")";
+//    return "(" + this.getX() + ", " + this.getY() + ")";
   }
 
   /**
@@ -62,7 +64,7 @@ public class Point {
     //       the x and y fields.
     if (o instanceof Point) {
       Point o1 = (Point)o;
-      return o1.getX() == o1.getY();
+      return (this.x == o1.x) && (this.getY() == o1.y);
     }
     else {
       return false;
@@ -78,6 +80,7 @@ public class Point {
   @Override
   public int hashCode() {
     // TODO: Objects.hash(x, y) is an easy way to combine the fields.
-    return Objects.hash(this.x, this.y);
+    return Objects.hash(new Object[]{this.x, this.y});
   }
+//    return Objects.hash(this.x, this.y);}
 }
