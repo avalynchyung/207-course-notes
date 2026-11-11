@@ -1,10 +1,5 @@
 import java.awt.FlowLayout;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
+import javax.swing.*;
 
 /**
  * Exercise (Chapter 4: GUIs with Swing) — matching a layout.
@@ -32,14 +27,21 @@ public class RegistrationForm {
    * @return the form's root panel
    */
   public static JPanel buildForm() {
-    JPanel panel = new JPanel(new FlowLayout());
+    JPanel panel = new JPanel();
+    JPanel panel2 = new JPanel();
+    JPanel panel3 = new JPanel();
+    JPanel mainPanel = new JPanel();
     panel.add(new JLabel("First name:"));
     panel.add(new JTextField(12));
-    panel.add(new JLabel("Last name:"));
-    panel.add(new JTextField(12));
-    panel.add(new JButton("Submit"));
-    panel.add(new JButton("Cancel"));
-    return panel;
+    panel2.add(new JLabel("Last name:"));
+    panel2.add(new JTextField(12));
+    panel3.add(new JButton("Submit"));
+    panel3.add(new JButton("Cancel"));
+    mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+    mainPanel.add(panel);
+    mainPanel.add(panel2);
+    mainPanel.add(panel3);
+    return mainPanel;
   }
 
   /** Shows the form in a window so you can compare it with the target picture. */
